@@ -1,0 +1,121 @@
+float& C_BasePlayer::m_surfaceFriction()
+{
+	static unsigned int _m_surfaceFriction = FindInDataMap(GetPredDescMap(), "m_surfaceFriction");
+	return *(float*)((uintptr_t)this + _m_surfaceFriction);
+}
+
+void Movement::Quick_stop(CUserCmd* cmd)
+	{
+		if (!ctx.m_local())
+			return;
+
+		Vector hvel = ctx.m_local()->m_vecVelocity();
+		hvel.z = 0;
+		float speed = hvel.Length2D();
+
+		if (speed < 1.f)
+		{
+			cmd->forwardmove = 0.f;
+			cmd->sidemove = 0.f;
+			return;
+		}
+
+		static float accel = csgo.m_engine_cvars()->FindVar("sv_accelerate")->GetFloat();
+		static float maxSpeed = csgo.m_engine_cvars()->FindVar("sv_maxspeed")->GetFloat();
+		float playerSurfaceFriction = ctx.m_local()->m_surfaceFriction();
+		float max_accelspeed = accel * csgo.m_globals()->interval_per_tick * maxSpeed * playerSurfaceFriction;
+
+		float wishspeed{};
+
+		if (speed - max_accelspeed <= -1.f)
+		{
+			// speed - accelspeed = 0
+			// speed - accel*frametime*wishspeed = 0
+			// accel*frametime*wishspeed = speed
+			// wishspeed = speed / (accel*frametime)
+			wishspeed = max_accelspeed / (speed / (accel * csgo.m_globals()->interval_per_tick));
+		}
+		else // Full deceleration, since it won't overshoot
+		{
+			// Or use max_accelspeed, doesn't matter
+			wishspeed = max_accelspeed;
+		}
+
+		Vector ndir = (hvel * -1.f); Math::VectorAngles(ndir, ndir);
+		ndir.y = cmd->viewangles.y - ndir.y;
+		Math::AngleVectors(ndir, &ndir);
+
+		cmd->forwardmove = ndir.x * wishspeed;
+		cmd->sidemove = ndir.y * wishspeed;
+	}
+
+
+ctx.do_autostop = true в аимботе
+
+саму функцию вызывать ПЕРЕД EnginePrediction.
+
+void c_aimbot::autostop(CUserCmd* cmd, bool& send_packet, C_WeaponCSBaseGun* local_weapon)
+{
+	static auto accel = csgo.m_engine_cvars()->FindVar("sv_accelerate");
+
+	if (ctx.m_settings.aimbot_autostop == 0)
+		return;
+
+	static bool was_onground = ctx.m_local()->m_fFlags() & FL_ONGROUND;
+
+	if (ctx.do_autostop && local_weapon && local_weapon->GetCSWeaponData() && was_onground && ctx.m_local()->m_fFlags() & FL_ONGROUND)
+	{
+		auto speed = ((cmd->sidemove * cmd->sidemove) + (cmd->forwardmove * cmd->forwardmove));
+		auto lol = sqrt(speed);
+
+		auto velocity = ctx.m_local()->m_vecVelocity() + (ctx.m_local()->m_vecVelocity() * csgo.m_globals()->interval_per_tick);
+		float maxspeed = 30.f;
+
+		if (!ctx.m_local()->m_bIsScoped())
+			maxspeed = *(float*)(uintptr_t(local_weapon->GetCSWeaponData()) + 0x130);
+		else
+			maxspeed = *(float*)(uintptr_t(local_weapon->GetCSWeaponData()) + 0x134);//local_weapon->GetCSWeaponData()->max_speed;
+
+		maxspeed *= 0.31f;
+
+		float max_accelspeed = accel->GetFloat() * csgo.m_globals()->interval_per_tick * m_weapon()->GetMaxWeaponSpeed() * ctx.m_local()->m_surfaceFriction();
+
+		switch (ctx.m_settings.aimbot_autostop)
+		{
+		case 1:
+		{
+			cmd->buttons |= IN_SPEED;
+
+			if ((velocity.Length2D() + 1.f) > maxspeed)
+			{
+				//	cmd->buttons |= IN_WALK;
+				//Engine::Movement::Instance()->quick_stop(cmd);
+
+				if ((maxspeed + 1.0f) <= velocity.Length2D())
+				{
+					cmd->forwardmove = 0.0f;
+					cmd->sidemove = 0.0f;
+				}
+				else
+				{
+					cmd->sidemove = (maxspeed * (cmd->sidemove / lol));
+					cmd->forwardmove = (maxspeed * (cmd->forwardmove / lol));
+				}
+			}
+		}
+		break;
+		case 2:
+		{
+			cmd->buttons |= IN_SPEED;
+			Engine::Movement::Instance()->Quick_stop(cmd);
+		}
+		break;
+		}
+
+		/*Engine::Movement::Instance()->m_qAnglesView.y = RAD2DEG(std::atan2(ctx.m_local()->m_vecVelocity().y, ctx.m_local()->m_vecVelocity().x)) - 180.f;*/
+
+		ctx.do_autostop = false;
+	}
+
+	was_onground = (ctx.m_local()->m_fFlags() & FL_ONGROUND);
+}

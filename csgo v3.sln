@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "csgo v3", "Counter-Strike Global Offensive\Counter-Strike Global Offensive.vcxproj", "{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		release ndebug|x64 = release ndebug|x64
+		release ndebug|x86 = release ndebug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		test ndebug|x64 = test ndebug|x64
+		test ndebug|x86 = test ndebug|x86
+		test|x64 = test|x64
+		test|x86 = test|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Debug|x64.ActiveCfg = Debug|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Debug|x64.Build.0 = Debug|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Debug|x86.ActiveCfg = Debug|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Debug|x86.Build.0 = Debug|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.release ndebug|x64.ActiveCfg = release ndebug|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.release ndebug|x64.Build.0 = release ndebug|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.release ndebug|x86.ActiveCfg = release ndebug|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.release ndebug|x86.Build.0 = release ndebug|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Release|x64.ActiveCfg = Release|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Release|x64.Build.0 = Release|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Release|x86.ActiveCfg = Release|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.Release|x86.Build.0 = Release|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test ndebug|x64.ActiveCfg = test ndebug|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test ndebug|x64.Build.0 = test ndebug|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test ndebug|x86.ActiveCfg = test ndebug|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test ndebug|x86.Build.0 = test ndebug|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test|x64.ActiveCfg = test|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test|x64.Build.0 = test|x64
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test|x86.ActiveCfg = test|Win32
+		{A437D8C7-EFDA-444A-B941-5CEFCD40C2F6}.test|x86.Build.0 = test|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D2803B3-545A-424B-B0AA-02D73A29E682}
+	EndGlobalSection
+EndGlobal

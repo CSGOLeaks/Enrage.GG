@@ -1,0 +1,143 @@
+	if (is_local && ctx.m_local() && !ctx.m_local()->IsDead() && ctx.m_local()->get_animation_state())
+			{
+				//if (csgo.m_client_state())
+
+				C_AnimationLayer backuplayers[14];
+				memcpy(backuplayers, ctx.m_local()->animation_layers_ptr(), 0x38 * ctx.m_local()->get_animation_layers_count());
+
+				const auto dword_3CF22C70 = csgo.m_globals()->realtime;
+				const auto dword_3CF22C74 = csgo.m_globals()->curtime;
+				const auto dword_3CF22C78 = csgo.m_globals()->frametime;
+				const auto dword_3CF22C7C = csgo.m_globals()->absoluteframetime;
+				const auto dword_3CF22C80 = csgo.m_globals()->interpolation_amount;
+				const auto dword_3CF22C84 = csgo.m_globals()->framecount;
+				const auto dword_3CF22C88 = csgo.m_globals()->tickcount;
+
+				csgo.m_globals()->realtime = TICKS_TO_TIME(feature::anti_aim.sent_data.tickbase);
+				csgo.m_globals()->curtime = TICKS_TO_TIME(feature::anti_aim.sent_data.tickbase);
+				csgo.m_globals()->frametime = csgo.m_globals()->interval_per_tick;
+				csgo.m_globals()->absoluteframetime = csgo.m_globals()->interval_per_tick;
+				csgo.m_globals()->framecount = feature::anti_aim.sent_data.tickbase;
+				csgo.m_globals()->tickcount = feature::anti_aim.sent_data.tickbase;
+				csgo.m_globals()->interpolation_amount = 0.0f;
+
+				const auto backup_poses = ctx.m_local()->m_flPoseParameter();
+				const auto backup_flags = ctx.m_local()->m_fFlags();
+				const auto backup_duckamt = ctx.m_local()->m_flDuckAmount();
+				const auto backup_lby = ctx.m_local()->m_flLowerBodyYawTarget();
+				const auto backup_renderang = ctx.m_local()->get_render_angles();
+				const auto backup_absvel = ctx.m_local()->m_vecAbsVelocity();
+
+				auto fake_angle = feature::anti_aim.visual_real_angle;
+
+				if (feature::anti_aim.yaw_diff_with_backwards < FLT_MAX)
+				{
+					auto angles = QAngle(0, 0, 0);
+					csgo.m_engine()->GetViewAngles(angles);
+
+					fake_angle.y = Math::normalize_angle(Math::normalize_angle(angles.y - 180.f) + feature::anti_aim.yaw_diff_with_backwards);
+				}
+
+				auto state = *ctx.m_local()->get_animation_state();
+				*ctx.m_local()->get_animation_state() = ctx.fake_state;
+
+				//ctx.m_local()->get_animation_state()->feet_rate = 0.f;
+				/*if (!prev_poses.empty()) {
+					ctx.m_local()->get_animation_state()->feet_cycle = animlayers[6].m_flCycle;
+
+					if (ctx.m_local()->m_fFlags() & FL_ONGROUND)
+						ctx.m_local()->get_animation_state()->feet_rate = animlayers[6].m_flWeight;
+				}*/
+
+				//ctx.m_local()->m_flPoseParameter() = ctx.poses[ANGLE_FAKE];
+
+				ctx.m_local()->get_animation_state()->feet_rate = 0.f;
+				//ctx.m_local()->get_animation_state()->unk_frac = 0.f;
+
+				//ctx.m_local()->get_animation_state()->stop_to_full_run_frac = feature::anti_aim.stop_to_full_running_fraction;
+
+				if (ctx.m_local()->get_animation_state()->last_anim_upd_tick >= csgo.m_globals()->framecount)
+					ctx.m_local()->get_animation_state()->last_anim_upd_tick = csgo.m_globals()->framecount - 1;
+
+				//if (feature::anti_aim.last_chocked_amount <= 2)
+				//ctx.m_local()->get_animation_state()->last_anim_upd_time = csgo.m_globals()->curtime - (ctx.m_local()->m_flSimulationTime() - ctx.m_local()->m_flOldSimulationTime());
+
+				ctx.m_local()->m_flPoseParameter() = ctx.poses[ANGLE_FAKE];
+
+				/*memcpy(ctx.m_local()->animation_layers_ptr(), ctx.local_layers[ANGLE_REAL], 0x38 * ctx.m_local()->get_animation_layers_count());*/
+				ctx.m_local()->get_animation_state()->ent = (void*)ctx.m_local();
+				ctx.m_local()->get_animation_state()->stop_to_full_run_frac = feature::anti_aim.stop_to_full_running_fraction;
+				ctx.is_updating_fake = true;
+				ctx.m_local()->m_fFlags() = feature::anti_aim.sent_data.m_fFlags;
+				ctx.m_local()->m_vecAbsVelocity() = (feature::anti_aim.animation_speed > 6.f ? feature::anti_aim.sent_data.m_vecVelocity : Vector::Zero);
+				ctx.m_local()->update_animstate(ctx.m_local()->get_animation_state(), fake_angle);
+				//ctx.m_local()->invalidate_anims();
+				ctx.is_updating_fake = false;
+				ctx.m_local()->m_vecAbsVelocity() = backup_absvel;
+				memcpy(ctx.local_layers[ANGLE_FAKE], ctx.m_local()->animation_layers_ptr(), 0x38 * ctx.m_local()->get_animation_layers_count());
+				ctx.m_local()->m_fFlags() = backup_flags;
+
+				ctx.angles[ANGLE_FAKE] = ctx.m_local()->get_animation_state()->abs_yaw;
+				ctx.poses[ANGLE_FAKE] = ctx.m_local()->m_flPoseParameter();
+
+				if (!ctx.m_settings.fake_lag_enabled && !ctx.m_settings.anti_aim_enabled)
+				{
+					ctx.angles[ANGLE_REAL] = ctx.m_local()->get_animation_state()->abs_yaw;
+					ctx.poses[ANGLE_REAL] = ctx.m_local()->m_flPoseParameter();
+					memcpy(ctx.local_layers[ANGLE_REAL], ctx.m_local()->animation_layers_ptr(), 0x38 * ctx.m_local()->get_animation_layers_count());
+				}
+
+				ctx.fake_state = *ctx.m_local()->get_animation_state();
+
+				ctx.local_layers[ANGLE_FAKE][12].m_flWeight = 0.f;
+				ctx.local_layers[ANGLE_FAKE][3].m_flWeight = 0.f;
+				ctx.local_layers[ANGLE_FAKE][3].m_flCycle = 0.f;
+
+				ctx.m_local()->m_flPoseParameter() = backup_poses;
+				memcpy(ctx.m_local()->animation_layers_ptr(), backuplayers, 0x38 * ctx.m_local()->get_animation_layers_count());
+				ctx.m_local()->m_fFlags() = backup_flags;
+				ctx.m_local()->m_flDuckAmount() = backup_duckamt;
+				ctx.m_local()->m_flLowerBodyYawTarget() = backup_lby;
+				ctx.m_local()->get_render_angles() = backup_renderang;
+				*ctx.m_local()->get_animation_state() = state;
+				ctx.m_local()->m_vecAbsVelocity() = backup_absvel;
+
+				csgo.m_globals()->realtime = dword_3CF22C70;
+				csgo.m_globals()->curtime = dword_3CF22C74;
+				csgo.m_globals()->frametime = dword_3CF22C78;
+				csgo.m_globals()->absoluteframetime = dword_3CF22C7C;
+				csgo.m_globals()->interpolation_amount = dword_3CF22C80;
+				csgo.m_globals()->framecount = dword_3CF22C84;
+				csgo.m_globals()->tickcount = dword_3CF22C88;
+
+				static Vector old_origins[2] = { ctx.m_local()->get_abs_origin(), ctx.m_local()->get_abs_origin() };
+
+				ctx.m_local()->m_flPoseParameter() = ctx.poses[ANGLE_FAKE];
+				ctx.m_local()->force_bone_rebuild();
+				ctx.m_local()->set_abs_angles(QAngle(0, ctx.angles[ANGLE_FAKE], 0));
+				memcpy(ctx.m_local()->animation_layers_ptr(), ctx.local_layers[ANGLE_FAKE], 0x38 * ctx.m_local()->get_animation_layers_count());
+
+				ctx.m_local()->SetupBonesEx();
+				memcpy(ctx.fake_matrix, ctx.m_local()->m_CachedBoneData().Base(), ctx.m_local()->GetBoneCount() * sizeof(matrix3x4_t));
+				ctx.m_local()->m_flPoseParameter() = backup_poses;
+				feature::lagcomp.build_local_bones(ctx.m_local());
+				memcpy(ctx.m_local()->animation_layers_ptr(), backuplayers, 0x38 * ctx.m_local()->get_animation_layers_count());
+				//	//C_AnimationLayer backup_layers[15];
+				//
+				//	const auto backup_poses = ecx->m_flPoseParameter();
+				//	//memcpy(backup_layers, ecx->animation_layers_ptr(), 0x38 * ecx->get_animation_layers_count());
+				//
+				//	ecx->m_flPoseParameter() = ctx.poses[ANGLE_FAKE];
+				//	ecx->force_bone_rebuild();
+				//	ecx->set_abs_angles(QAngle(0, ctx.angles[ANGLE_FAKE], 0));
+				//	ecx->SetupBonesEx();
+				//
+				//	memcpy(ctx.fake_matrix, ecx->m_CachedBoneData().Base(), ecx->GetBoneCount() * sizeof(matrix3x4_t));
+				//	//memcpy(ecx->animation_layers_ptr(), backup_layers, 0x38 * ecx->get_animation_layers_count());
+				//
+				//	ecx->m_flPoseParameter() = ctx.poses[ANGLE_REAL];
+				//	feature::lagcomp.build_local_bones(ecx);
+				//
+				//	//memcpy(ecx->animation_layers_ptr(), backup_layers, 0x38 * ecx->get_animation_layers_count());
+				//	ecx->m_flPoseParameter() = backup_poses;
+			}

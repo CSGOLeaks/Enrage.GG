@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{d9575ed4-b3b4-4b35-9715-450fd649126b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{41483e86-f744-4484-a527-99a75fc9ae59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{74483f8d-c1bb-44bf-aef2-72f57f9240bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="valve">
+      <UniqueIdentifier>{0b8ba8d0-6ca4-41b0-af2a-a9575fb25456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="horizon">
+      <UniqueIdentifier>{afab3aa9-a591-4015-baa1-441cf2a7286c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="horizon\memory">
+      <UniqueIdentifier>{0da61017-6a41-4c48-8a51-81e55e0908c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="horizon\win32">
+      <UniqueIdentifier>{63fe72a3-3796-4265-90ac-a6a6f533aa70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\hooked">
+      <UniqueIdentifier>{c19225b9-87db-4485-a546-a3158b8d7757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="valve\core">
+      <UniqueIdentifier>{3bfc70c2-c268-42f3-9903-e6ae45313e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="horizon\core">
+      <UniqueIdentifier>{d8bcae19-60fb-49bd-9683-74354a11b74c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{4f47dc83-0c5c-4c90-8ace-bce5ec86def9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\displacement">
+      <UniqueIdentifier>{adf8f900-81fb-46b8-9476-438ce0f30a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="valve\object">
+      <UniqueIdentifier>{b3bd3363-0705-4107-9ec4-35f9ca95029e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\prediction">
+      <UniqueIdentifier>{ff3e2749-42ad-47b7-92c3-60c89777c02f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu">
+      <UniqueIdentifier>{4cc2d6d6-a135-432b-911d-c981f2974f06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\movement">
+      <UniqueIdentifier>{30893de0-7593-4e1a-b59d-467657d4e0b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot">
+      <UniqueIdentifier>{52aa079b-642e-4c11-95d4-038b619cd42b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot\anti-aimbot">
+      <UniqueIdentifier>{37a5b03d-f837-4e53-a7a6-5b869fe980fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot\rage-aimbot">
+      <UniqueIdentifier>{9f3bc3ac-e4e0-440e-a140-6db11d8843db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\misc">
+      <UniqueIdentifier>{982959de-563f-4a8c-8acc-2c070678622d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot\anti-anti-aim">
+      <UniqueIdentifier>{f288fc6b-aca6-4fd4-9ccb-6f388c5938e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\visuals">
+      <UniqueIdentifier>{497da6d5-8eca-4116-a2c9-af8812723deb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot\extra">
+      <UniqueIdentifier>{639dee94-3ce0-4627-80d0-a4a478baa147}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot\lag-compensation">
+      <UniqueIdentifier>{d76421d9-81d4-4272-b7f9-eb18300ac5b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\visuals\models">
+      <UniqueIdentifier>{e516d161-2001-4ed2-9d3c-a5a832b2ff03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot\autowall">
+      <UniqueIdentifier>{5c476034-c984-48d9-afde-86ce9e74b6f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\misc\music-player">
+      <UniqueIdentifier>{3ca11f71-d245-46cd-afe4-8abe7ba6dd63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\prop-manager">
+      <UniqueIdentifier>{1f9527f9-0f87-4188-8ba2-8766e26decd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu\menu-v2">
+      <UniqueIdentifier>{2596b440-db59-4c92-b74b-94c927b1c960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu\menu-v2\gui">
+      <UniqueIdentifier>{3391ea8e-8016-4ae4-a7bc-16825bc73a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu\menu-v2\gui\controls">
+      <UniqueIdentifier>{d70dbeed-7a32-429d-a6bc-bcfa5ac059e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu\menu-v2\gui\container">
+      <UniqueIdentifier>{7a381163-645c-4fc4-ac8a-dca65dce2c77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu\menu-v2\input">
+      <UniqueIdentifier>{f31d3854-6c2d-4b9a-b1f1-d64df5b5b8e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu\menu-v2\menu">
+      <UniqueIdentifier>{88951108-a8e3-4b13-b527-c19c54e51ddf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\menu\menu-v2\settings">
+      <UniqueIdentifier>{a298ce18-8279-48c7-868a-3ca4fc0e039e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\visuals\sound">
+      <UniqueIdentifier>{2494cbc3-1aff-4cdc-97be-99132bdc9544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="horizon\threading">
+      <UniqueIdentifier>{2f251372-5664-4384-8655-ed42b2bc4600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\hooked\server debugging">
+      <UniqueIdentifier>{3f59b5a9-50e4-4c9a-a212-39896a4a2b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\visuals\grenades">
+      <UniqueIdentifier>{dcd30636-3d7e-45ae-989f-f766ca881a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\rage-bot\rage-aimbot\knife_aimbot">
+      <UniqueIdentifier>{b8419b12-ec79-431a-ac07-302434fc8e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\visuals\precipitation">
+      <UniqueIdentifier>{3a63a686-4b4c-4813-9c36-e63002ac9d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\visuals\dx9render">
+      <UniqueIdentifier>{b133e837-374e-4e28-82eb-8dad7d5a4218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\visuals\dx9render\menu">
+      <UniqueIdentifier>{9b8722a8-6bae-4161-8701-fc73913d5511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\imgui_extended">
+      <UniqueIdentifier>{175f754f-4dad-4c4b-be2c-81cca2ee223f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\legit-aimbot">
+      <UniqueIdentifier>{492fb937-9c37-43e0-b947-4791798e1f4e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="source.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="createmove.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="vector2d.cpp">
+      <Filter>valve\core</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>valve\core</Filter>
+    </ClCompile>
+    <ClCompile Include="vector4d.cpp">
+      <Filter>valve\core</Filter>
+    </ClCompile>
+    <ClCompile Include="qangle.cpp">
+      <Filter>valve\core</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix.cpp">
+      <Filter>valve\core</Filter>
+    </ClCompile>
+    <ClCompile Include="prop_manager.cpp">
+      <Filter>engine\prop-manager</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk.cpp">
+      <Filter>valve</Filter>
+    </ClCompile>
+    <ClCompile Include="displacement.cpp">
+      <Filter>engine\displacement</Filter>
+    </ClCompile>
+    <ClCompile Include="framestagenotify.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="scan.cpp">
+      <Filter>horizon\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="print.cpp">
+      <Filter>horizon\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>valve\object</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>valve\object</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon.cpp">
+      <Filter>valve\object</Filter>
+    </ClCompile>
+    <ClCompile Include="prediction.cpp">
+      <Filter>engine\prediction</Filter>
+    </ClCompile>
+    <ClCompile Include="drawing.cpp">
+      <Filter>valve\core</Filter>
+    </ClCompile>
+    <ClCompile Include="math.cpp">
+      <Filter>valve\core</Filter>
+    </ClCompile>
+    <ClCompile Include="wndproc.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="misc_hooks.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="paint.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="movement.cpp">
+      <Filter>engine\movement</Filter>
+    </ClCompile>
+    <ClCompile Include="anti_aimbot.cpp">
+      <Filter>engine\rage-bot\anti-aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="misc.cpp">
+      <Filter>engine\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="overrideview.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="resolver.cpp">
+      <Filter>engine\rage-bot\anti-anti-aim</Filter>
+    </ClCompile>
+    <ClCompile Include="visuals.cpp">
+      <Filter>engine\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="usercmd.cpp">
+      <Filter>engine\rage-bot\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="lag_comp.cpp">
+      <Filter>engine\rage-bot\lag-compensation</Filter>
+    </ClCompile>
+    <ClCompile Include="chams.cpp">
+      <Filter>engine\visuals\models</Filter>
+    </ClCompile>
+    <ClCompile Include="rage_aimbot.cpp">
+      <Filter>engine\rage-bot\rage-aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="autowall.cpp">
+      <Filter>engine\rage-bot\autowall</Filter>
+    </ClCompile>
+    <ClCompile Include="event_manager.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="prediction_hooks.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="clientstate.cpp">
+      <Filter>source\hooked</Filter>
+    </ClCompile>
+    <ClCompile Include="beams.cpp">
+      <Filter>engine\visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>engine\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="music_player.cpp">
+      <Filter>engine\misc\music-player</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\container\tab.cpp">
+      <Filter>engine\menu\menu-v2\gui\container</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\container\window.cpp">
+      <Filter>engine\menu\menu-v2\gui\container</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\container\section.cpp">
+      <Filter>engine\menu\menu-v2\gui\container</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\controls\button.cpp">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\controls\checkbox.cpp">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\controls\colorpicker.cpp">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\controls\combobox.cpp">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\controls\keybind.cpp">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\controls\multibox.cpp">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\gui\controls\slider.cpp">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\input\input.cpp">
+      <Filter>engine\menu\menu-v2\input</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\setup\setup.cpp">
+      <Filter>engine\menu\menu-v2\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\menu\menu_v2.cpp">
+      <Filter>engine\menu\menu-v2\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>engine\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="vdf_parser.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="sound_parser.cpp">
+      <Filter>engine\visuals\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="threading\packed_heap.cpp">
+      <Filter>horizon\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="threading\semaphores.cpp">
+      <Filter>horizon\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="threading\shared_mutex.cpp">
+      <Filter>horizon\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="threading\threading.cpp">
+      <Filter>horizon\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="threading\atomic_lock.cpp">
+      <Filter>horizon\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="threading\mutex.cpp">
+      <Filter>horizon\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="server_lag_comp.cpp">
+      <Filter>source\hooked\server debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="internet.cpp">
+      <Filter>horizon\core</Filter>
+    </ClCompile>
+    <ClCompile Include="grenades.cpp">
+      <Filter>engine\visuals\grenades</Filter>
+    </ClCompile>
+    <ClCompile Include="knifebot.cpp">
+      <Filter>engine\rage-bot\rage-aimbot\knife_aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="ray_tracer.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="weather_controller.cpp">
+      <Filter>engine\visuals\precipitation</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering.cpp">
+      <Filter>engine\visuals\dx9render</Filter>
+    </ClCompile>
+    <ClCompile Include="i_menu.cpp">
+      <Filter>engine\visuals\dx9render\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_extension.cpp">
+      <Filter>include\imgui_extended</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_dx9.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="aimbot.cpp">
+      <Filter>engine\legit-aimbot</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="os.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="auto.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk.hpp">
+      <Filter>valve</Filter>
+    </ClInclude>
+    <ClInclude Include="vmt_swap.hpp">
+      <Filter>horizon\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="vcall.hpp">
+      <Filter>horizon\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="horizon.hpp">
+      <Filter>horizon</Filter>
+    </ClInclude>
+    <ClInclude Include="hooked.hpp">
+      <Filter>source\hooked</Filter>
+    </ClInclude>
+    <ClInclude Include="core.hpp">
+      <Filter>valve\core</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2d.hpp">
+      <Filter>valve\core</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.hpp">
+      <Filter>valve\core</Filter>
+    </ClInclude>
+    <ClInclude Include="vector4d.hpp">
+      <Filter>valve\core</Filter>
+    </ClInclude>
+    <ClInclude Include="qangle.hpp">
+      <Filter>valve\core</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix.hpp">
+      <Filter>valve\core</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.hpp">
+      <Filter>horizon\core</Filter>
+    </ClInclude>
+    <ClInclude Include="prop_manager.hpp">
+      <Filter>engine\prop-manager</Filter>
+    </ClInclude>
+    <ClInclude Include="displacement.hpp">
+      <Filter>engine\displacement</Filter>
+    </ClInclude>
+    <ClInclude Include="scan.hpp">
+      <Filter>horizon\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="print.hpp">
+      <Filter>horizon\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.hpp">
+      <Filter>valve\object</Filter>
+    </ClInclude>
+    <ClInclude Include="player.hpp">
+      <Filter>valve\object</Filter>
+    </ClInclude>
+    <ClInclude Include="weapon.hpp">
+      <Filter>valve\object</Filter>
+    </ClInclude>
+    <ClInclude Include="prediction.hpp">
+      <Filter>engine\prediction</Filter>
+    </ClInclude>
+    <ClInclude Include="math.hpp">
+      <Filter>valve\core</Filter>
+    </ClInclude>
+    <ClInclude Include="visitor.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="movement.hpp">
+      <Filter>engine\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="anti_aimbot.hpp">
+      <Filter>engine\rage-bot\anti-aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="CUtlString.cpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="CUtlString.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="CUtlVector.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="CUtlMemory.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="hooge.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="misc.hpp">
+      <Filter>engine\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="detours.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="resolver.hpp">
+      <Filter>engine\rage-bot\anti-anti-aim</Filter>
+    </ClInclude>
+    <ClInclude Include="visuals.hpp">
+      <Filter>engine\visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="usercmd.hpp">
+      <Filter>engine\rage-bot\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="lag_comp.hpp">
+      <Filter>engine\rage-bot\lag-compensation</Filter>
+    </ClInclude>
+    <ClInclude Include="chams.hpp">
+      <Filter>engine\visuals\models</Filter>
+    </ClInclude>
+    <ClInclude Include="rage_aimbot.hpp">
+      <Filter>engine\rage-bot\rage-aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="autowall.hpp">
+      <Filter>engine\rage-bot\autowall</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.hpp">
+      <Filter>engine\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="music_player.hpp">
+      <Filter>engine\misc\music-player</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\element.h">
+      <Filter>engine\menu\menu-v2\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\container\section.h">
+      <Filter>engine\menu\menu-v2\gui\container</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\container\tab.h">
+      <Filter>engine\menu\menu-v2\gui\container</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\container\window.h">
+      <Filter>engine\menu\menu-v2\gui\container</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\controls\button.h">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\controls\checkbox.h">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\controls\colorpicker.h">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\controls\combobox.h">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\controls\keybind.h">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\controls\multibox.h">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\gui\controls\slider.h">
+      <Filter>engine\menu\menu-v2\gui\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\input\input.h">
+      <Filter>engine\menu\menu-v2\input</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\setup\settings.h">
+      <Filter>engine\menu\menu-v2\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\menu\menu_v2.h">
+      <Filter>engine\menu\menu-v2\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.hpp">
+      <Filter>engine\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="vdf_parser.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="optional.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="sound_parser.hpp">
+      <Filter>engine\visuals\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="vmpsdk.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="icons.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="threading\packed_heap.h">
+      <Filter>horizon\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="threading\semaphores.h">
+      <Filter>horizon\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="threading\shared_mutex.h">
+      <Filter>horizon\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="threading\threading.h">
+      <Filter>horizon\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="threading\atomic_lock.h">
+      <Filter>horizon\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="threading\MinHook.h">
+      <Filter>horizon\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="threading\mutex.h">
+      <Filter>horizon\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="bell.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="server_lag_comp.hpp">
+      <Filter>source\hooked\server debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="screenshot_sound.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="internet.hpp">
+      <Filter>horizon\core</Filter>
+    </ClInclude>
+    <ClInclude Include="grenades.hpp">
+      <Filter>engine\visuals\grenades</Filter>
+    </ClInclude>
+    <ClInclude Include="ray_tracer.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="weather_controller.hpp">
+      <Filter>engine\visuals\precipitation</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedlist.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="cutl_fixed_mem.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="cutl_block_mem.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering.hpp">
+      <Filter>engine\visuals\dx9render</Filter>
+    </ClInclude>
+    <ClInclude Include="i_menu.hpp">
+      <Filter>engine\visuals\dx9render\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_extension.hpp">
+      <Filter>include\imgui_extended</Filter>
+    </ClInclude>
+    <ClInclude Include="icon_font.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_icons.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imconfig.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_dx9.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_rect_pack.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_textedit.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_truetype.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="aimbot.hpp">
+      <Filter>engine\legit-aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="source.hpp">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
